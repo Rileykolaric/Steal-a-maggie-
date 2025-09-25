@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Brain-Rot Themed Profile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffd6f6, #d6e6ff, #fff7d6, #e5d6ff);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
+      text-align: center;
+      color: #333;
+    }
+
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff4da6;
+      text-shadow: 2px 2px 0px #fff;
+    }
+
+    .podium-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin: 2rem;
+      gap: 2rem;
+    }
+
+    .podium {
+      position: relative;
+      width: 150px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    }
+
+    .podium span {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .character {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .character .face {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #eac086; /* tan skin */
+      position: relative;
+    }
+
+    .character .face::before {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 35px;
+      width: 12px;
+      height: 12px;
+      background: gold;
+      border-radius: 50%;
+    }
+
+    .character .eyes {
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      top: 28px;
+      width: 100%;
+      padding: 0 18px;
+    }
+
+    .character .eyes div {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #1ca3ec; /* ocean blue eyes */
+    }
+
+    .character .mouth {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 15px;
+      border-bottom: 4px solid #000;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .character .outfit {
+      margin-top: 10px;
+      width: 80px;
+      height: 100px;
+      background: #000; /* black shirt */
+      position: relative;
+      border-radius: 8px;
+    }
+
+    .character .outfit::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 30px;
+      background: #ff99c8; /* lululemon pink shorts */
+      border-radius: 0 0 8px 8px;
+    }
+
+    .supporters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .supporters .mini {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffb6eb, #d6c6ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.6rem;
+      text-align: center;
+    }
+
+    .jealous {
+      background: #f1f1f1;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌸 My Brain-Rot Profile 🌸</h1>
+    <p>Welcome to my colorful, chaotic corner of the internet.</p>
+  </header>
+
+  <div class="podium-container">
+    <div class="podium jealous" style="height: 180px;">
+      <div class="character">
+        <div class="face" style="background:#f9e0c0;"></div>
+        <div class="outfit" style="background:#bbb;"></div>
+      </div>
+      <span>2</span>
+    </div>
+
+    <div class="podium" style="height: 220px;">
+      <div class="character">
+        <div class="face"></div>
+        <div class="eyes">
+          <div></div>
+          <div></div>
+        </div>
+        <div class="mouth"></div>
+        <div class="outfit"></div>
+      </div>
+      <span>1</span>
+      <div class="supporters">
+        <div class="mini">📣</div>
+        <div class="mini">💖</div>
+        <div class="mini">🔥</div>
+      </div>
+    </div>
+
+    <div class="podium jealous" style="height: 160px;">
+      <div class="character">
+        <div class="face" style="background:#f9e0c0;"></div>
+        <div class="outfit" style="background:#bbb;"></div>
+      </div>
+      <span>3</span>
+    </div>
+  </div>
+</body>
+</html>
