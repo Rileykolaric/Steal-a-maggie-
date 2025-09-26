@@ -1,203 +1,87 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Brain-Rot Themed Profile</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: linear-gradient(135deg, #ffd6f6, #d6e6ff, #fff7d6, #e5d6ff);
-      background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
-      text-align: center;
-      color: #333;
-    }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name • Brain-Rot Profile</title>
 
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Rubik:wght@300;400;600&display=swap" rel="stylesheet">
 
-    header {
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      color: #ff4da6;
-      text-shadow: 2px 2px 0px #fff;
-    }
-
-    .podium-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      margin: 2rem;
-      gap: 2rem;
-    }
-
-    .podium {
-      position: relative;
-      width: 150px;
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 1rem;
-      box-shadow: 0 6px 10px rgba(0,0,0,0.3);
-    }
-
-    .podium span {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .character {
-      margin-bottom: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .character .face {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #eac086; /* tan skin */
-      position: relative;
-    }
-
-    .character .face::before {
-      content: '';
-      position: absolute;
-      right: -6px;
-      top: 35px;
-      width: 12px;
-      height: 12px;
-      background: gold;
-      border-radius: 50%;
-    }
-
-    .character .eyes {
-      display: flex;
-      justify-content: space-around;
-      position: absolute;
-      top: 28px;
-      width: 100%;
-      padding: 0 18px;
-    }
-
-    .character .eyes div {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #1ca3ec; /* ocean blue eyes */
-    }
-
-    .character .mouth {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 15px;
-      border-bottom: 4px solid #000;
-      border-radius: 0 0 30px 30px;
-    }
-
-    .character .outfit {
-      margin-top: 10px;
-      width: 80px;
-      height: 100px;
-      background: #000; /* black shirt */
-      position: relative;
-      border-radius: 8px;
-    }
-
-    .character .outfit::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 30px;
-      background: #ff99c8; /* lululemon pink shorts */
-      border-radius: 0 0 8px 8px;
-    }
-
-    .supporters {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .supporters .mini {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ffb6eb, #d6c6ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.6rem;
-      text-align: center;
-    }
-
-    .jealous {
-      background: #f1f1f1;
-      color: #999;
-      font-style: italic;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Personal profile — pastel brain-rot aesthetic with podium scene." />
 </head>
 <body>
-  <header>
-    <h1>🌸 My Brain-Rot Profile 🌸</h1>
-    <p>Welcome to my colorful, chaotic corner of the internet.</p>
-  </header>
-
-  <div class="podium-container">
-    <div class="podium jealous" style="height: 180px;">
-      <div class="character">
-        <div class="face" style="background:#f9e0c0;"></div>
-        <div class="outfit" style="background:#bbb;"></div>
-      </div>
-      <span>2</span>
-    </div>
-
-    <div class="podium" style="height: 220px;">
-      <div class="character">
-        <div class="face"></div>
-        <div class="eyes">
-          <div></div>
-          <div></div>
+  <main class="container">
+    <header class="hero">
+      <div class="hero-inner">
+        <h1 class="title">Your Name</h1>
+        <p class="subtitle">Brain-rot enthusiast • Creative maker • Podium energy</p>
+        <div class="cta-row">
+          <a class="btn" href="#about">About</a>
+          <a class="btn ghost" href="#contact">Contact</a>
         </div>
-        <div class="mouth"></div>
-        <div class="outfit"></div>
       </div>
-      <span>1</span>
-      <div class="supporters">
-        <div class="mini">📣</div>
-        <div class="mini">💖</div>
-        <div class="mini">🔥</div>
-      </div>
-    </div>
+    </header>
 
-    <div class="podium jealous" style="height: 160px;">
-      <div class="character">
-        <div class="face" style="background:#f9e0c0;"></div>
-        <div class="outfit" style="background:#bbb;"></div>
+    <section id="scene" class="scene-section">
+      <div class="scene-card">
+        <!-- Illustration -->
+        <img class="scene-image" src="assets/scene.png" alt="Victory on the podium — main character in first place, cheering characters behind, jealous blondes in 2nd and 3rd places." />
+
+        <!-- overlay profile card -->
+        <aside class="profile-card" aria-labelledby="profile-title">
+          <div class="avatar" aria-hidden="true">
+            <!-- small circular cropped version of the scene could go here if provided -->
+            <img src="assets/scene.png" alt="" />
+          </div>
+          <div class="profile-content">
+            <h2 id="profile-title">Your Name</h2>
+            <p class="role">Front-end Creator · Visual Storyteller</p>
+            <p class="bio">I make pastel brain-rot art and playful personal sites. Lover of warm gold earrings and podium energy.</p>
+
+            <div class="profile-links">
+              <a class="pill" href="#work">Work</a>
+              <a class="pill" href="#gallery">Gallery</a>
+              <a class="pill" href="#contact">Hire</a>
+            </div>
+          </div>
+        </aside>
       </div>
-      <span>3</span>
-    </div>
-  </div>
+    </section>
+
+    <section id="about" class="content-section">
+      <h3>About</h3>
+      <p>
+        This is a personal profile site with a pastel brain-rot theme: soft pinks, blues, yellows and purples.
+        The central illustration shows a proud winner on the podium, cheering characters behind her, and two pale blondes looking wistful — all balanced for a vibrant profile look.
+      </p>
+    </section>
+
+    <section id="work" class="content-section">
+      <h3>Selected Work</h3>
+      <ul class="cards">
+        <li class="card">
+          <h4>Project Alpha</h4>
+          <p>Small description of a creative project with pastel visuals and playful UI.</p>
+        </li>
+        <li class="card">
+          <h4>Project Beta</h4>
+          <p>Illustrations, character-focused banners, and site templates for personal brands.</p>
+        </li>
+      </ul>
+    </section>
+
+    <footer id="contact" class="footer">
+      <div>
+        <h4>Contact</h4>
+        <p>email@example.com • @yourhandle</p>
+      </div>
+      <p class="credits">Made with pastel brain-rot ✨</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
