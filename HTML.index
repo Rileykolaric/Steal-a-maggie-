@@ -1,0 +1,13 @@
+
+---
+
+# Final notes & next steps
+- Put the generated single full-scene image into `assets/scene.png`. If you want me to automatically embed the exact filename you used earlier, say “use the generated image in the repo” and I’ll update the HTML to reference that filename — but this is optional since you can rename the file easily.
+- If you want more effects (animated confetti, social icons, contact form, or a deploy script), I can add them right away.
+- If you’d like this packaged into a downloadable ZIP or a ready-to-push Git repo (and you want me to create the files for you in a canvas/code doc), tell me and I’ll create them for you.
+
+Would you like me to:
+1. Generate a ZIP with these files for download?  
+2. Or prepare a single-file React preview (if you prefer a React site)?  
+
+Pick one and I’ll produce the next step.
