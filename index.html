@@ -2,48 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Steal-A-Maggie</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Profile -->
-  <div id="profile">
-    <img src="https://via.placeholder.com/60" alt="Profile">
-    <p>@YourUsername</p>
+  <!-- LOBBY -->
+  <div id="lobby" class="screen">
+    <h1>STEAL-A-MAGGIE</h1>
+    <p>Lobby – Waiting for Players...</p>
+    <button onclick="startGame()">Start Game</button>
   </div>
 
-  <!-- Add Friends -->
-  <button id="add-friends">Add Friends</button>
-
-  <!-- Search Bar -->
-  <div id="search">
-    <input type="text" placeholder="Search...">
+  <!-- GAME -->
+  <div id="game" class="screen hidden">
+    <canvas id="gameCanvas" width="900" height="600"></canvas>
+    <div id="timer">Time Left: 15:00</div>
   </div>
 
-  <!-- Main Background -->
-  <div id="background">
-    <div class="girl-placeholder">[Girl Image Here]</div>
-  </div>
-
-  <!-- Games Section -->
-  <h1 class="title">Steal-A-Maggie</h1>
-  <div id="lobby">Waiting Room – Steal-A-Maggie</div>
-  
-  <div id="game-area">
-    <!-- Generate 6 bases -->
-  </div>
-
-  <!-- Podium -->
-  <div id="podium" class="hidden">
-    <h2>Winners</h2>
-    <ol>
-      <li>🥇 First Place - +50 Coins</li>
-      <li>🥈 Second Place - +25 Coins</li>
-      <li>🥉 Third Place - +15 Coins</li>
-    </ol>
+  <!-- END SCREEN -->
+  <div id="end" class="screen hidden">
+    <h2>Game Over!</h2>
+    <div id="podium"></div>
+    <button onclick="resetGame()">Back to Lobby</button>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
