@@ -1,13 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steal-A-Maggie</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Profile -->
+  <div id="profile">
+    <img src="https://via.placeholder.com/60" alt="Profile">
+    <p>@YourUsername</p>
+  </div>
 
----
+  <!-- Add Friends -->
+  <button id="add-friends">Add Friends</button>
 
-# Final notes & next steps
-- Put the generated single full-scene image into `assets/scene.png`. If you want me to automatically embed the exact filename you used earlier, say “use the generated image in the repo” and I’ll update the HTML to reference that filename — but this is optional since you can rename the file easily.
-- If you want more effects (animated confetti, social icons, contact form, or a deploy script), I can add them right away.
-- If you’d like this packaged into a downloadable ZIP or a ready-to-push Git repo (and you want me to create the files for you in a canvas/code doc), tell me and I’ll create them for you.
+  <!-- Search Bar -->
+  <div id="search">
+    <input type="text" placeholder="Search...">
+  </div>
 
-Would you like me to:
-1. Generate a ZIP with these files for download?  
-2. Or prepare a single-file React preview (if you prefer a React site)?  
+  <!-- Main Background -->
+  <div id="background">
+    <div class="girl-placeholder">[Girl Image Here]</div>
+  </div>
 
-Pick one and I’ll produce the next step.
+  <!-- Games Section -->
+  <h1 class="title">Steal-A-Maggie</h1>
+  <div id="lobby">Waiting Room – Steal-A-Maggie</div>
+  
+  <div id="game-area">
+    <!-- Generate 6 bases -->
+  </div>
+
+  <!-- Podium -->
+  <div id="podium" class="hidden">
+    <h2>Winners</h2>
+    <ol>
+      <li>🥇 First Place - +50 Coins</li>
+      <li>🥈 Second Place - +25 Coins</li>
+      <li>🥉 Third Place - +15 Coins</li>
+    </ol>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at center, hotorange, neonblue);
+  overflow-x: hidden;
+  color: white;
+}
+
+/* Profile */
+#profile {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, blue, yellow);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#profile img {
+  border-radius: 50%;
+}
+
+/* Add Friends */
+#add-friends {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: yellow;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Search */
+#search {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#search input {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Game Area */
+#game-area {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.base {
+  background: rgba(0,0,0,0.6);
+  border: 2px solid yellow;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+}
+.username {
+  position: absolute;
+  top: -20px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Lobby */
+#lobby {
+  background: linear-gradient(135deg, hotpink, orange, yellow);
+  padding: 15px;
+  border-radius: 12px;
+  margin: 20px;
+  text-align: center;
+}
+
+/* Podium */
+#podium {
+  margin: 40px auto;
+  width: 50%;
+  background: navy;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
+.hidden { display: none; }
+const gameArea = document.getElementById("game-area");
+
+// Example brainrot names
+const brainrots = ["Maggie Bobobear", "Toothpick Tim", "Goofy Grape", "Lulu Popcorn", "Bobby Bubble", "CheeseStick"];
+
+// Generate 6 bases
+for (let i = 1; i <= 6; i++) {
+  const base = document.createElement("div");
+  base.classList.add("base");
+  base.innerHTML = `
+    <div class="username">Player${i}</div>
+    <p>Base ${i}</p>
+    <div class="slots"></div>
+  `;
+  gameArea.appendChild(base);
+
+  // Add 12 slots for brainrots
+  const slots = base.querySelector(".slots");
+  for (let j = 0; j < 12; j++) {
+    const slot = document.createElement("div");
+    slot.textContent = brainrots[Math.floor(Math.random() * brainrots.length)];
+    slot.style.fontSize = "12px";
+    slot.style.margin = "2px";
+    slots.appendChild(slot);
+  }
+}
