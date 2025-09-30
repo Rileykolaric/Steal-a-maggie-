@@ -1,27 +1,74 @@
+let timerInterval;
+let timeLeft = 15 * 60; // 15 minutes
+const timerDisplay = document.getElementById("timer");
 
-const gameArea = document.getElementById("game-area");
+// Switch screens
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
 
-// Example brainrot names
-const brainrots = ["Maggie Bobobear", "Toothpick Tim", "Goofy Grape", "Lulu Popcorn", "Bobby Bubble", "CheeseStick"];
+function startGame() {
+  showScreen("game");
+  startTimer();
+  initCanvas();
+}
 
-// Generate 6 bases
-for (let i = 1; i <= 6; i++) {
-  const base = document.createElement("div");
-  base.classList.add("base");
-  base.innerHTML = `
-    <div class="username">Player${i}</div>
-    <p>Base ${i}</p>
-    <div class="slots"></div>
+function resetGame() {
+  clearInterval(timerInterval);
+  timeLeft = 15 * 60;
+  timerDisplay.textContent = "Time Left: 15:00";
+  showScreen("lobby");
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      endGame();
+    } else {
+      timeLeft--;
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerDisplay.textContent = `Time Left: ${min}:${sec.toString().padStart(2, '0')}`;
+    }
+  }, 1000);
+}
+
+function endGame() {
+  showScreen("end");
+  document.getElementById("podium").innerHTML = `
+    <h3>1st Place: +50 Coins</h3>
+    <h3>2nd Place: +25 Coins</h3>
+    <h3>3rd Place: +15 Coins</h3>
   `;
-  gameArea.appendChild(base);
+}
 
-  // Add 12 slots for brainrots
-  const slots = base.querySelector(".slots");
-  for (let j = 0; j < 12; j++) {
-    const slot = document.createElement("div");
-    slot.textContent = brainrots[Math.floor(Math.random() * brainrots.length)];
-    slot.style.fontSize = "12px";
-    slot.style.margin = "2px";
-    slots.appendChild(slot);
+// --- GAME CANVAS ---
+function initCanvas() {
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+
+  let player = { x: 100, y: 100, size: 30, color: "blue" };
+
+  function drawPlayer() {
+    ctx.fillStyle = player.color;
+    ctx.fillRect(player.x, player.y, player.size, player.size);
   }
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawPlayer();
+  }
+
+  // Controls
+  window.addEventListener("keydown", e => {
+    if (e.key === "ArrowUp") player.y -= 10;
+    if (e.key === "ArrowDown") player.y += 10;
+    if (e.key === "ArrowLeft") player.x -= 10;
+    if (e.key === "ArrowRight") player.x += 10;
+    update();
+  });
+
+  update();
 }
