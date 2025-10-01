@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Steal-A-Maggie</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- LOBBY -->
-  <div id="lobby" class="screen">
-    <h1>STEAL-A-MAGGIE</h1>
-    <p>Lobby – Waiting for Players...</p>
-    <button onclick="startGame()">Start Game</button>
-  </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steal-A-Maggie | Profile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', sans-serif;
+      background: linear-gradient(135deg, hotpink, orange, yellow, cyan);
+      background-size: 300% 300%;
+      animation: swirl 15s infinite;
+      color: white;
+    }
 
-  <!-- GAME -->
-  <div id="game" class="screen hidden">
-    <canvas id="gameCanvas" width="900" height="600"></canvas>
-    <div id="timer">Time Left: 15:00</div>
-  </div>
+    @keyframes swirl {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-  <!-- END SCREEN -->
-  <div id="end" class="screen hidden">
-    <h2>Game Over!</h2>
-    <div id="podium"></div>
-    <button onclick="resetGame()">Back to Lobby</button>
-  </div>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background: rgba(0,0,0,0.6);
+    }
 
-  <script src="script.js"></script>
-</body>
-</html>
+    .profile {
+      font
