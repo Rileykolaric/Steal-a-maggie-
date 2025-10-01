@@ -1,29 +1,81 @@
 body {
   margin: 0;
-  font-family: "Comic Sans MS", sans-serif;
-  text-align: center;
-  background: radial-gradient(circle, hotpink, orange);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   color: white;
+  background: linear-gradient(135deg, hotpink, neonblue, yellow);
+  background-size: 300% 300%;
+  animation: bgShift 10s infinite alternate;
+  overflow-x: hidden;
 }
 
-.screen {
+/* Swirl background look */
+.background.swirl {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at center,
+    hotpink 0%, neonblue 40%, yellow 80%);
+  filter: blur(80px);
+}
+
+@keyframes bgShift {
+  from { background-position: 0% 50%; }
+  to   { background-position: 100% 50%; }
+}
+
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0,0,0,0.5);
+}
+
+.profile, .add-friends {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 5px;
+  border-radius: 12px;
+  border: none;
+}
+
+main {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 3em;
+  color: yellow;
+  text-shadow: 0 0 15px blue, 0 0 25px hotpink;
+}
+
+.bases {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.base {
+  width: 150px;
+  height: 150px;
+  background: rgba(255,255,255,0.1);
+  border: 3px solid yellow;
+  border-radius: 20px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  transition: transform .2s;
 }
 
-.hidden { display: none; }
-
-#gameCanvas {
-  background: linear-gradient(135deg, lightblue, hotorange);
-  border: 5px solid yellow;
-  border-radius: 15px;
-}
-
-#timer {
-  margin-top: 10px;
-  font-size: 24px;
-  font-weight: bold;
+.base:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,0,0.3);
 }
