@@ -2,170 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Steal-A-Maggie - Game 1</title>
+  <title>Steal-A-Maggie Hub</title>
   <style>
     body {
       margin: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: hotpink;
-      overflow: hidden;
-      height: 100vh;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: rgba(255, 255, 255, 0.3);
-      font-weight: bold;
-    }
-
-    #money, #timer {
-      font-size: 1.5em;
-    }
-
-    .coin {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: gold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.8em;
-      font-weight: bold;
-      color: black;
-      cursor: pointer;
-      animation: float 3s infinite ease-in-out alternate;
-    }
-
-    @keyframes float {
-      from { transform: translateY(0); }
-      to { transform: translateY(-30px); }
-    }
-
-    #gameOverScreen {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(135deg, #00f, #ff0);
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
       color: white;
-      font-size: 2em;
-      display: none;
     }
 
-    #playAgain {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background: yellow;
-      color: black;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div id="money">Money: 0</div>
-    <div id="timer">Time: 15</div>
-  </header>
-
-  <div id="gameOverScreen">
-    <p id="finalScore"></p>
-    <button id="playAgain">Play Again</button>
-    <br>
-    <a href="../index.html" style="color: cyan; font-size: 0.8em;">⬅ Back to Hub</a>
-  </div>
-
-  <script>
-    const sillyNames = ["Maggie bobobear", "Floppo", "Goobert", "Wiggleworm", "Slippy", "Bongo"];
-    let money = 0;
-    let timeLeft = 15;
-    let timerInterval;
-    let coinInterval;
-
-    const moneyDisplay = document.getElementById("money");
-    const timerDisplay = document.getElementById("timer");
-    const gameOverScreen = document.getElementById("gameOverScreen");
-    const finalScore = document.getElementById("finalScore");
-    const playAgainBtn = document.getElementById("playAgain");
-
-    function startGame() {
-      money = 0;
-      timeLeft = 15;
-      moneyDisplay.textContent = "Money: 0";
-      timerDisplay.textContent = "Time: 15";
-      gameOverScreen.style.display = "none";
-
-      // start timer
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = "Time: " + timeLeft;
-        if (timeLeft <= 0) {
-          endGame();
-        }
-      }, 1000);
-
-      // spawn coins
-      coinInterval = setInterval(spawnCoin, 1000);
+    h1 {
+      font-size: 3em;
+      text-shadow: 2px 2px black;
     }
 
-    function spawnCoin() {
-      const coin = document.createElement("div");
-      coin.classList.add("coin");
-      coin.textContent = sillyNames[Math.floor(Math.random() * sillyNames.length)];
-
-      const value = Math.floor(Math.random() * 10) + 1; // 1-10 points
-      coin.dataset.value = value;
-
-      coin.style.top = Math.random() * (window.innerHeight - 100) + "px";
-      coin.style.left = Math.random() * (window.innerWidth - 100) + "px";
-
-      document.body.appendChild(coin);
-
-      // make coin move randomly
-      const moveInterval = setInterval(() => {
-        coin.style.top = Math.random() * (window.innerHeight - 100) + "px";
-        coin.style.left = Math.random() * (window.innerWidth - 100) + "px";
-      }, 1500);
-
-      // click event
-      coin.addEventListener("click", () => {
-        money += value;
-        moneyDisplay.textContent = "Money: " + money;
-        coin.remove();
-        clearInterval(moveInterval);
-      });
-
-      // remove after 5s if not clicked
-      setTimeout(() => {
-        if (document.body.contains(coin)) {
-          coin.remove();
-          clearInterval(moveInterval);
-        }
-      }, 5000);
-    }
-
-    function endGame() {
-      clearInterval(timerInterval);
-      clearInterval(coinInterval);
-      document.querySelectorAll(".coin").forEach(c => c.remove());
-      finalScore.textContent = "Game Over! You earned: " + money + " coins";
-      gameOverScreen.style.display = "flex";
-    }
-
-    playAgainBtn.addEventListener("click", startGame);
-
-    // start on load
-    startGame();
-  </script>
-</body>
-</html>
+    .games {
+      display: flex;
+      gap: 20px;
+      mar
