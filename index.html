@@ -2,28 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Game 1 - Steal-A-Maggie</title>
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background: #111;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-    canvas {
-      border: 2px solid #fff;
-    }
-  </style>
+  <title>Steal-A-Maggie</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <!-- Header -->
+  <header>
+    <div class="profile">Profile</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="add-friends">+ Add Friends</div>
+  </header>
 
-  <script src="game1.js"></script>
+  <!-- Background -->
+  <div class="background swirl"></div>
+
+  <!-- Main Content -->
+  <main>
+    <h1 class="title">Steal-A-Maggie</h1>
+    <p class="subtitle">Jump in & steal brainrots — even solo!</p>
+
+    <!-- Game bases -->
+    <section class="bases">
+      <div class="base"><a href="games/game1.html">Base 1</a></div>
+      <div class="base"><a href="games/game2.html">Base 2</a></div>
+      <div class="base"><a href="games/game3.html">Base 3</a></div>
+      <div class="base"><a href="games/game4.html">Base 4</a></div>
+      <div class="base"><a href="games/game5.html">Base 5</a></div>
+      <div class="base"><a href="games/game6.html">Base 6</a></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
